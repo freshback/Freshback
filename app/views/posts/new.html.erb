@@ -1,0 +1,14 @@
+<h2>Добавлення новго поста<h2>
+<%= form_for :post, url: posts_path do |f| %>
+	<p>
+	   Назва<br>
+	   <%= f.text_field :title %>
+	   </p>
+	<p>
+	 	Текст статi<br>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>
