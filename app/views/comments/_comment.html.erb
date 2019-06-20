@@ -1,5 +1,8 @@
 Author:
-<%= comment.user.email.split('@').first %><br>
+<%= link_to user_path(comment.user.id) do %><br>
+<%= comment.user.nickname%><br>
+<%= image_tag comment.user.avatar.url, style:"width:100px;"%><br>
+<%end%>
 <%=comment.text%><br>
 Created:
 <%= comment.created_at.to_date.strftime("%d %B, %Y") %><hr>
