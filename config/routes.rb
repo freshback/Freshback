@@ -4,4 +4,5 @@
   root 'keshbacks#index'
 
   resources :keshbacks
+	resources :comments, only: %i[create destroy]
 end

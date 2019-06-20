@@ -4,3 +4,18 @@
 <%= link_to "Link", "https://#{@keshback.link}" %>
 <%= @keshback.description %>
 <%# link_to @keshback.user.email.split('@').first, user_path(@keshback.user.id) %>
+<% if user_signed_in? %>
+
+  <%= render 'comments/form'%>
+
+<% else %>
+  <%= link_to "Reg", new_user_registration_path%><br>
+  або
+  <%= link_to "Log", new_user_session_path%>
+<% end %>
+<br>
+<ul class="content-list content-list_comments">
+  <% @comments.each do |comment| %>
+    <%=render 'comments/comment', comment:comment %>
+  <%end%>
+</ul>

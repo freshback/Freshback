@@ -20,6 +20,7 @@ class KeshbacksController < ApplicationController
   end
 
   def show
+    @comments=Comment.where(keshback_id: @keshback.id).order(created_at: :desc)
   end
 
   def edit
