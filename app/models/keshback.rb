@@ -1,0 +1,2 @@
+class Keshback < ApplicationRecord
+end
