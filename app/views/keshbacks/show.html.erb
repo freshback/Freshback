@@ -1,2 +1,6 @@
-<h1>Keshbacks#show</h1>
-<p>Find me in app/views/keshbacks/show.html.erb</p>
+<%= @keshback.name %>
+<%= image_tag @keshback.photo.url, style:"width:500px;" %>
+<%= @keshback.count %>
+<%= link_to "Link", "https://#{@keshback.link}" %>
+<%= @keshback.description %>
+<%# link_to @keshback.user.email.split('@').first, user_path(@keshback.user.id) %>

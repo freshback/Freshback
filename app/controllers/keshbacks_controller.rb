@@ -46,7 +46,7 @@ class KeshbacksController < ApplicationController
   end
 
   def keshback_params
-  params.require(:keshback).permit(:user_id, :name, :link,:count,:description)
+  params.require(:keshback).permit(:user_id, :name, :link,:count,:description, :photo)
   end
 
 end

@@ -6,6 +6,7 @@ class CreateKeshbacks < ActiveRecord::Migration[5.1]
       t.string :description
       t.string :link
       t.string :count
+      t.string :photo
 
       t.timestamps
     end

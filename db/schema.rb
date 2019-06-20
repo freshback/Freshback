@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20190620104047) do
     t.string "description"
     t.string "link"
     t.string "count"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
