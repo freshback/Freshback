@@ -1,0 +1,10 @@
+All users:
+<br>
+<% @users.each do |x|%>
+ <%=x.nickname%>
+ <br>
+ <%= image_tag x.avatar.url, style:"width:100px;"%>
+ <br>
+ <%= link_to "Profile", user_path(x.id)%>
+ <hr>
+<% end %>

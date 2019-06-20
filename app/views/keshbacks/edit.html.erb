@@ -1,0 +1,4 @@
+<%= form_for @keshback, url: keshback_path(@keshback.id) do |f| %>
+<%= render 'keshbacks/form', f:f%>
+<%= f.submit%>
+<% end %>
