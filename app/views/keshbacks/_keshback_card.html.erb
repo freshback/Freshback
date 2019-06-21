@@ -1,0 +1,29 @@
+<div class='keshback-card'>
+  <h6>
+    <%= link_to keshback do %>
+    <%= keshback.name[0..13] ...%>
+  <% end %>
+</h6>
+<%= link_to keshback do %>
+<img style='width: 100px;' src='<%= keshback.photo %>' alt=''/>
+<% end %>
+<h5>
++/-
+<%= keshback.count %>
+%
+</h5>
+<p>
+<%= link_to "Link", "https://#{keshback.link}" %>
+</p>
+<% if !local_assigns.has_key?(:hide_form) || !hide_form %>
+<div class='row'>
+  <div class='col-md-6'>
+    <%= link_to keshback, class: 'btn btn-light' do %>
+    Read More
+  <% end %>
+</div>
+</div>
+<% end %>
+<%= yield %>
+</div>
+<br>

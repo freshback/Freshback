@@ -3,8 +3,6 @@ class Keshback < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
- # mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
-
-  #serialize :photo, JSON
 end

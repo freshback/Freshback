@@ -1,0 +1,9 @@
+<% keshbacks.each_slice(12) do | keshbacks_group | %>
+  <div class='row'>
+    <% keshbacks_group.each do |keshback| %>
+      <div class='col-sm-2 col-xs-4'>
+        <%= render 'keshback_card', keshback: keshback %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
