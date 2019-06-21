@@ -1,5 +1,5 @@
 <%= @keshback.name %>
-<%= image_tag @keshback.photo.url, style:"width:500px;" %>
+  <img style='max-width: 100%;' src='<%= @keshback.photo %>' alt=''/>
 <%= @keshback.count %>
 <%= link_to "Link", "https://#{@keshback.link}" %>
 <%= @keshback.description %>
