@@ -3,10 +3,13 @@ Author:
 <%= comment.user.nickname%><br>
 <%= image_tag comment.user.avatar.url, style:"width:100px;"%><br>
 <%end%>
+Text: <br>
 <%=comment.text%><br>
 Created:
-<%= comment.created_at.to_date.strftime("%d %B, %Y") %><hr>
+<%= comment.created_at.to_date.strftime("%d %B, %Y") %>
 
 <% if user_signed_in? && comment.user.id == current_user.id %>
+<br>
   <%= link_to "delete", comment_path(comment.id), method: :delete %>
 <% end%>
+<hr>
