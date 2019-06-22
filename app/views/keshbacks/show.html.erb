@@ -7,6 +7,19 @@
       <div class='col-md-6 mb-sm-5'>
         <div class='card'>
           <div class='card-body'>
+            <div class="row">
+
+              <% if user_signed_in? &&  @keshback.user != nil && @keshback.user.id == current_user.id %>
+                <div class="col">
+                  Бажаєте відредагувати?
+                  <%= link_to "Edit", edit_keshback_path(@keshback.id),class:"btn btn-warning"%>
+                </div>
+                <div class="col">
+                  Щось пішло не так? Видалити?
+                  <%= link_to "Delete", keshback_path(@keshback.id), method: :delete, class:"btn btn-danger"%>
+                </div>
+              <%end%>
+            </div>
             <h1>
               <%= @keshback.name %>
             </h1>
