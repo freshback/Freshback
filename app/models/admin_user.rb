@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class AdminUser < ApplicationRecord
-    attr_accessor :login
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  attr_accessor :login
+
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
@@ -10,5 +11,4 @@ class AdminUser < ApplicationRecord
     login = conditions.delete(:login)
     where(conditions).where(['lower(email) = :value OR lower(email) = :value', { value: login.strip.downcase }]).first
   end
-
 end
