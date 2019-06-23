@@ -24,10 +24,10 @@ class KeshbacksController < ApplicationController
   end
 
   def edit
-    if  @keshback.user == nil#if create admin
+  #  if  @keshback.user == nil#if create admin
        # if create user  && @keshback.user.id != current_user.id
-      redirect_to keshback_path(@keshback.id)
-    end
+  #    redirect_to keshback_path(@keshback.id)
+#    end
 
   end
 
