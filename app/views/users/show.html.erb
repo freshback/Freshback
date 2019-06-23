@@ -1,6 +1,19 @@
-<%= @user.email%>
-<%= @user.nickname%>
-<%= image_tag @user.avatar.url, style:"width:400px;"%>
-<% if user_signed_in? && @user.id == current_user.id%>
-<%= link_to "Setting", edit_user_registration_path%>
-<%end%>
+<br>
+<center>
+  <div class='col-sm-4 col-xs-4'>
+    <div class="row">
+      <div class="col">
+        <div class="text-center">
+          <%= image_tag @user.avatar.url,style:"max-width:400px;" %><br>
+          <%= @user.nickname%>
+          <br>
+          <%= @user.email%>
+          <% if user_signed_in? && @user == current_user %>
+            <hr>
+            <%= link_to "Setting", edit_user_registration_path, class:"btn btn-warning"%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>

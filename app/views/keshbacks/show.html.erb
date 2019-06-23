@@ -1,21 +1,55 @@
-<%= @keshback.name %>
-<%= image_tag @keshback.photo.url, style:"width:500px;" %>
-<%= @keshback.count %>
-<%= link_to "Link", "https://#{@keshback.link}" %>
-<%= @keshback.description %>
-<%# link_to @keshback.user.email.split('@').first, user_path(@keshback.user.id) %>
-<% if user_signed_in? %>
+<div class='album'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-6 text-center mb-sm-5'>
+        <img style='max-width: 100%;' src='<%= @keshback.photo %>' alt=''/>
+      </div>
+      <div class='col-md-6 mb-sm-5'>
+        <div class='card'>
+          <div class='card-body'>
+            <div class="row">
 
-  <%= render 'comments/form'%>
+              <% if user_signed_in? &&  @keshback.user != nil && @keshback.user.id == current_user.id %>
+                <div class="col">
+                  Бажаєте відредагувати?
+                  <%= link_to "Edit", edit_keshback_path(@keshback.id),class:"btn btn-warning"%>
+                </div>
+                <div class="col">
+                  Щось пішло не так? Видалити?
+                  <%= link_to "Delete", keshback_path(@keshback.id), method: :delete, class:"btn btn-danger"%>
+                </div>
+              <%end%>
+            </div>
+            <h1>
+              <%= @keshback.name %>
+            </h1>
+            <p>
+              <%= link_to "Link", "https://#{@keshback.link}" %>
+            </p>
+            <h5>
+              <%= @keshback.count %>
+              %
+            </h5>
+            <% if user_signed_in? %>
 
-<% else %>
-  <%= link_to "Reg", new_user_registration_path%><br>
-  або
-  <%= link_to "Log", new_user_session_path%>
-<% end %>
-<br>
-<ul class="content-list content-list_comments">
-  <% @comments.each do |comment| %>
-    <%=render 'comments/comment', comment:comment %>
-  <%end%>
-</ul>
+              <%= render 'comments/form'%>
+
+            <% else %>
+              <%= link_to "Reg", new_user_registration_path%><br>
+              або
+              <%= link_to "Log", new_user_session_path%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='mb-sm-5'>
+      <%= @keshback.description %>
+    </div>
+  </div>
+  <ul class="content-list content-list_comments">
+    <% @comments.each do |comment| %>
+      <%=render 'comments/comment', comment:comment %>
+    <%end%>
+  </ul>
+</div>

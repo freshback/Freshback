@@ -1,4 +1,7 @@
+<center><div class="col-md-6 col-md-offset-3 login-box">
 <%= form_for @keshback, url: keshback_path(@keshback.id) do |f| %>
 <%= render 'keshbacks/form', f:f%>
-<%= f.submit%>
+<%= f.submit "Update", class:"btn btn-warning"%>
 <% end %>
+</div>
+</center>

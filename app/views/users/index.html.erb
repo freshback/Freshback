@@ -1,10 +1,22 @@
 All users:
 <br>
-<% @users.each do |x|%>
- <%=x.nickname%>
- <br>
- <%= image_tag x.avatar.url, style:"width:100px;"%>
- <br>
- <%= link_to "Profile", user_path(x.id)%>
- <hr>
-<% end %>
+<div class='album'>
+  <div class='container'>
+    <% @users.each_slice(3) do | y | %>
+      <div class='row'>
+        <% y.each do |x| %>
+          <div class='col-sm-4 col-xs-4'>
+            <div class="card">
+              <img class="card-img-top" src="<%= x.avatar.url %>" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title"><%= x.nickname %></h4>
+                <p class="card-text"><%= x.email%></p>
+                <%= link_to "Profile", user_path(x.id), class:"btn btn-primary"%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
