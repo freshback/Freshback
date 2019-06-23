@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe KeshbacksController, type: :controller do
@@ -56,6 +58,18 @@ RSpec.describe KeshbacksController, type: :controller do
       params.keys.each do |key|
         expect(keshback.attributes[key.to_s]).to eq params[key]
       end
+    end
+  end
+  context 'POST #create' do
+    it 'should update keshback info' do
+      params = {
+        name: 'a',
+        count: '1',
+        link: 'c',
+        description: 'd'
+      }
+
+      post :create, params: { keshback: params }
     end
   end
 
