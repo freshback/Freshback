@@ -11,13 +11,9 @@ RSpec.describe CommentsController, type: :controller do
     let!(:keshback) { create :keshback, user: user }
     it 'should update comment info' do
       params = {
-        name: 'a',
-        count: '1',
-        link: 'c',
-        description: 'd'
+        text: 'd'
       }
-
-      post :create, params: { comment: params }
+      post :create, params: { comment: params, keshback: keshback, user: user }
     end
   end
   context 'DELETE #destroy' do
